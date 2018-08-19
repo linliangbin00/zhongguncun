@@ -9,6 +9,8 @@ import scrapy
 
 
 class ZhongguancunItem(scrapy.Item):
+    """定义要存储的字段"""
+
     # define the fields for your item here like:
     # name = scrapy.Field()
 

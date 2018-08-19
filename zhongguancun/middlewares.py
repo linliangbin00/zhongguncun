@@ -5,17 +5,16 @@
 # See documentation in:
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 import random
-
 from scrapy import signals
-
 from zhongguancun.settings import USER_AGENTS
-
 from zhongguancun.settings import PROXIES
 from zhongguancun.settings import REFERER
 
 
 
 class RandomProxy(object):
+    """使用IP池"""
+
     def process_request(self, request, spider):
         proxy = random.choice(PROXIES)
 
@@ -23,13 +22,13 @@ class RandomProxy(object):
         print(request.meta['proxy'])
 
 class RandomUserAgent(object):
+    """使用代理池"""
+    
     def process_request(self, request, spider):
         useragent = random.choice(USER_AGENTS)
         request.headers.setdefault("User-Agent", useragent)
         referer = random.choice(REFERER)
         request.headers.setdefault("Referer", referer)
-        print(useragent,"####",referer)
-
 
 
 class ZhongguancunSpiderMiddleware(object):

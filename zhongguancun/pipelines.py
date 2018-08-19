@@ -6,11 +6,10 @@
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 from scrapy import log
 from scrapy.exceptions import DropItem
-
-# from zhongguancun import settings
 import pymongo
 
 class ZhongguancunPipeline(object):
+    """存入mongodb数据库"""
 
     def __init__(self):
         self.conn = None
