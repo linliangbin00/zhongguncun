@@ -1,1 +1,3 @@
 # zhongguncun
+
+本项目使用scrapy框架爬取中关村网站的手机数据，使用了scrapy-redis进行去重，并存入redis数据库和mongodb数据库。
